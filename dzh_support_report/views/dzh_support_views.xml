@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+    	<record id="view_users_form_extended_for_dzh" model="ir.ui.view">
+    	    <field name="name">res.users.form.extended.dz</field>
+    	    <field name="model">res.users</field>
+    	    <field name="inherit_id" ref="base.view_users_form"/>
+    	    <field name="arch" type="xml">
+    	    	<xpath expr="//field[@name='partner_id']" position="after">
+    	    		<field name="support_email"/>
+    	    	</xpath>
+    	    </field>
+    	</record>
+
+    </data>
+</odoo>
