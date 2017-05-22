@@ -24,7 +24,6 @@ class ResPartnerStatus(models.Model):
 
 class ResPartnerUSERS(models.Model):
     _name = 'dzh.partner.user'
-    _rec_name = 'user_id'
 
     name = fields.Text('Name')
     user_id = fields.Text('User ID')

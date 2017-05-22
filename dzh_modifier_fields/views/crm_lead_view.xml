@@ -17,7 +17,10 @@
 					<field name="user_id"  attrs="{'invisible': [('dzh_check_box','=',False)]}"/>
 					<field name="start_date"  attrs="{'invisible': [('dzh_check_box','=',False)]}"/>
 					<field name="end_date"  attrs="{'invisible': [('dzh_check_box','=',False)]}"/>
-					<field name="product_id" attrs="{'invisible': [('dzh_check_box','=',False)]}"/>
+                    <field name="product_id"
+                        widget="many2many_tags"
+                        context="{'object_name': 'crm.lead'}"
+                    />					
 				</field>
 
 			</field>

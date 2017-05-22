@@ -11,7 +11,7 @@ class CRMLead(models.Model):
     dzh_user_id = fields.Text('User ID')
     start_date= fields.Date('Start Date')
     end_date = fields.Date('End Date')
-    product_id = fields.Many2one('product.product', string="Product")
+    product_id = fields.Many2many('product.product', string="Product")
 
 class MarketSegmet(models.Model):
     _name = 'market.segment'
