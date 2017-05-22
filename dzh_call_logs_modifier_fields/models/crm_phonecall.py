@@ -23,7 +23,7 @@ class CrmPhonecall(models.Model):
     country_id = fields.Many2one(
          comodel_name='res.country',
          string='Country')
-
+    source_id = fields.Many2one('utm.source', "Source", ondelete='cascade')
 
     @api.onchange('partner_id')
     def on_change_partner_id(self):

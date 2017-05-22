@@ -10,7 +10,7 @@
 Account Advisory Report Sending to Support Users..
 ======================================
 """,
-    'depends': ['base', 'mail', 'report','crm'],
+    'depends': ['base', 'mail', 'report','crm','dzh_call_logs_modifier_fields'],
     'data': [
         'data/mail_template_data.xml',
         'views/dzh_support_views.xml',

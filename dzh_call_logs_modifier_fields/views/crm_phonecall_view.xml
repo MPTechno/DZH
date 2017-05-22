@@ -64,6 +64,7 @@
             <field name="inherit_id" ref="crm_phonecall.crm_case_inbound_phone_tree_view"/>
             <field name="arch" type="xml">
                 <field name="user_id" position="after">
+                    <field name="source_id"/>
                     <field name="crm_market_segment_id" />
                     <field name="crm_member_type_id" />
                     <field name="product_ids" widget="many2many_tags"/>
