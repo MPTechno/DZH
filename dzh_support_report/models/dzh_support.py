@@ -78,18 +78,29 @@ class MailTemplate(models.Model):
 class crm_lead(models.Model):
 	_inherit = 'crm.lead'
 
+	dzh_partner_user_ids = fields.Many2many('dzh.partner.user','sol_dzh_partner_rel','sol_id','dzh_partner_id', string='User ID')
+
+	@api.multi
+	def create(self, vals):
+		res = super(crm_lead , self).create(vals)
+		if 'dzh_check_box' in vals:
+			if vals['dzh_check_box'] == True:
+				template = self.env.ref('dzh_support_report.email_template_dzh_support_report', False)
+				user_list = []
+				for user in self.env['res.users'].search([('support_email','=',True)]):
+					user_list.append(user.partner_id.id)
+				template.send_mail(res.id,user_list)
+		return res
+
 	@api.multi
 	def write(self, vals):
 		if 'dzh_check_box' in vals:
 			if vals['dzh_check_box'] == True:
-				mail_template_id = self.env['ir.model.data'].get_object_reference('dzh_support_report', 'email_template_dzh_support_report')
-				if mail_template_id:
-					template_obj = self.env['mail.template']
-					template = self.env.ref('dzh_support_report.email_template_dzh_support_report', False)
-					user_list = []
-					for user in self.env['res.users'].search([('support_email','=',True)]):
-						user_list.append(user.partner_id.id)
-					template.send_mail(self.id,user_list)
+				template = self.env.ref('dzh_support_report.email_template_dzh_support_report', False)
+				user_list = []
+				for user in self.env['res.users'].search([('support_email','=',True)]):
+					user_list.append(user.partner_id.id)
+				template.send_mail(self.id,user_list)
 		return super(crm_lead , self).write(vals)
 
 	@api.multi
@@ -103,10 +114,3 @@ class res_users(models.Model):
 	_inherit = 'res.users'
 
 	support_email = fields.Boolean('Support')
-
-class sale_order(models.Model):
-	_inherit = 'sale.order'
-
-	dzh_partner_user_ids = fields.Many2many('dzh.partner.user','sol_dzh_partner_rel','sol_id','dzh_partner_id', string='User ID')
-
-	

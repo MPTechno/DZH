@@ -21,15 +21,7 @@
                 <xpath expr="//button[@name='action_set_won']" position="after">
                     <button name="notify_salesperson" string="Notify Salesperson" class="oe_highlight" type="object"></button>
                 </xpath>
-            </field>
-        </record>
-
-        <record id="view_sale_prder_from_extended_for_dzh" model="ir.ui.view">
-            <field name="name">cr.sale.order.extended.dz</field>
-            <field name="model">sale.order</field>
-            <field name="inherit_id" ref="sale.view_order_form"/>
-            <field name="arch" type="xml">
-                <xpath expr="//field[@name='partner_shipping_id']" position="after">
+                <xpath expr="//field[@name='tag_ids']" position="after">
                     <field name="dzh_partner_user_ids" widget="many2many_tags" context="{'dzh_user':True,'partner_id':partner_id}"/>
                 </xpath>
             </field>
