@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--
+        User ID Sequences
+        -->
+        <record id="sequence_user_id_seq" model="ir.sequence">
+            <field name="name">UserID sequence</field>
+            <field name="code">userid.seq</field>
+            <field name="prefix"></field>
+            <field eval="False" name="company_id"/>
+            <field name="padding">1</field>
+        </record>
+
+    </data>
+</odoo>

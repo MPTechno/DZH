@@ -8,10 +8,11 @@ class CRMLead(models.Model):
     member_type_id = fields.Many2one('member.type', string="Member Type")
     dzh_user = fields.Char('User ID')
     dzh_check_box = fields.Boolean(string="Trial Account")
-    dzh_user_id = fields.Text('User ID')
+    dzh_user_id = fields.Char('User ID')
     start_date= fields.Date('Start Date')
     end_date = fields.Date('End Date')
     product_id = fields.Many2many('product.product', string="Product")
+    currency_id = fields.Many2one("res.currency", "Currency")
 
 class MarketSegmet(models.Model):
     _name = 'market.segment'

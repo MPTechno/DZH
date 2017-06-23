@@ -2,3 +2,4 @@
 import crm
 import partner
 import dzh_customer_invoice
+import sale

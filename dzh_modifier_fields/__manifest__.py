@@ -1,16 +1,19 @@
 # -*- coding: utf-8 -*-
 {
     "name": "DZH Modifier Fields",
-    "author": "HashMicro/Vivek",
-    "version": "10.0.1",
+    "author": "HashMicro / Vivek / Sang / GeminateCS",
+    "version": "10.0.2",
     "website": "www.hashmicro.com",
     "category": "Sales",
     "depends": ["crm", 'product',
                 'account'],
     "data": [
-             'views/crm_lead_view.xml',
+             'data/sequence.xml',
+            'views/crm_lead_view.xml',
             'views/res_partner_view.xml',
-            'views/dzh_customer_invoice.xml'
+            'views/dzh_customer_invoice.xml',
+            'views/sale_order_view.xml',
+            'security/ir.model.access.csv'
     ],
     'description': '''
     ''',

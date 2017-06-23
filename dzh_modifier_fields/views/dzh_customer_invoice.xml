@@ -1,19 +1,46 @@
 <odoo>
-	<data>
-		<record id="dzh_customer_invoice_inherit_form" model="ir.ui.view">
+    <data>
+        <record id="dzh_customer_invoice_inherit_form" model="ir.ui.view">
             <field name="name">dzh.customer.invoice.inherit</field>
             <field name="model">account.invoice</field>
             <field name="inherit_id" ref="account.invoice_form"/>
             <field name="arch" type="xml">
-				<xpath expr="//form/sheet/notebook/page[@name='other_info']/group/group[2]/field[@name='name']" position='attributes'>
-					<attribute name="string">Quickbook Invoice Number</attribute>
-				</xpath>
-				<xpath expr="//form/sheet/notebook/page[@name='other_info']/group/group[2]/field[@name='name']" position='after'>
-					<field name="cr_number" />
-				</xpath>
-
-
-			</field>
-		</record>
-	</data>
+                <xpath expr="//form/sheet/notebook/page[@name='other_info']/group/group[2]/field[@name='name']"
+                       position='attributes'>
+                    <attribute name="string">Quickbook Invoice Number</attribute>
+                </xpath>
+                <xpath expr="//form/sheet/notebook/page[@name='other_info']/group/group[2]/field[@name='name']"
+                       position='after'>
+                    <field name="cr_number"/>
+                </xpath>
+                <xpath expr="//page[1]/field[@name='invoice_line_ids']/tree/field[@name='product_id']"
+                       position="before">
+                    <field name="partner_from_io" invisible="1" />
+                    <field name="account_user_id" string="User ID" widget="many2many_tags"
+                           domain="[('dzh_partner_id', '=', partner_from_io)]"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="subscription_period"/>
+                </xpath>
+                <xpath expr="//page[1]/field[@name='invoice_line_ids']"
+                       position="attributes">
+                    <attribute name="context">{'invoice_order_partner_id': partner_id}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='payment_term_id']" position="after">
+                    <field name="x_contact_term"/>
+                </xpath>
+                <xpath expr="//field[@name='date_invoice']" position="after">
+                    <label for="x_subscription_period"/>
+                    <div>
+                        <field name="x_month_number" nolabel="1"/>
+                        <br/>
+                        <div class="o_row">
+                            <field name="x_subscription_period" nolabel="1"/>To
+                            <field name="x_end_date" nolabel="1"/>
+                        </div>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+    </data>
 </odoo>
