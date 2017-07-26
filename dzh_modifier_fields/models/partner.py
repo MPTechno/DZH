@@ -82,3 +82,8 @@ class MemberType(models.Model):
     name = fields.Char('Name')
 
 
+
+
+
+
+
