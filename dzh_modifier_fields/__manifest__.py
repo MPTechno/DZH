@@ -5,8 +5,8 @@
     "version": "10.0.2",
     "website": "www.hashmicro.com",
     "category": "Sales",
-    "depends": ['crm', 'product',
-                'account','mail','base'],
+    "depends": ['base','crm', 'product',
+                'account','mail'],
     "data": [
              'data/sequence.xml',
             'views/crm_lead_view.xml',
