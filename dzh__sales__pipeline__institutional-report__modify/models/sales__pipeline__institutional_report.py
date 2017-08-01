@@ -30,7 +30,7 @@ class sales_pipeline_institutional_report(models.TransientModel):
         conditions = [
             ('create_date', '>=', data['from']['start_date']),
             ('create_date', '<=', data['from']['end_date']),
-            ('invoice_type', '=', 'finacial'),
+            ('invoice_type', '=', 'fiancial'),
         ]
 
         if data['from']['sales_person']:

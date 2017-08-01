@@ -53,8 +53,7 @@ class sales_pipeline_institutional_report(models.TransientModel):
                         'ids': [invoice.id],
                     }
 
-            return {
-            'type': 'ir.actions.report.xml',
-            'report_name': 'dzh_sales_conference_education_pipeline.sale_pipeline_conference_education_report',
-        }
+        return {
+        'type': 'ir.actions.report.xml',
+        'report_name': 'dzh_sales_conference_education_pipeline.sale_pipeline_conference_education_report',}
 

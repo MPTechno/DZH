@@ -21,9 +21,9 @@
                 <xpath expr="//button[@name='action_set_won']" position="after">
                     <button name="notify_salesperson" string="Notify Salesperson" class="oe_highlight" type="object"></button>
                 </xpath>
-                <xpath expr="//field[@name='tag_ids']" position="after">
-                    <field name="dzh_partner_user_ids" widget="many2many_tags" context="{'dzh_user':True,'partner_id':partner_id}"/>
-                </xpath>
+                <!--<xpath expr="//field[@name='tag_ids']" position="after">-->
+                    <!--<field name="dzh_partner_user_ids" widget="many2many_tags" context="{'dzh_user':True,'partner_id':partner_id}"/>-->
+                <!--</xpath>-->
             </field>
         </record>
 

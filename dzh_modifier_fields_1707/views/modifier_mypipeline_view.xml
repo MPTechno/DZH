@@ -23,6 +23,7 @@
                             <label for="currency_id" class="oe_edit_only"/>
                             <div class="o_row">
                                 <field name="currency_id"/>
+                                <span></span>
                             </div>
                         </div>
                         <div>

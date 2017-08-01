@@ -80,7 +80,7 @@ class crm_lead(models.Model):
 
 	dzh_partner_user_ids = fields.Many2many('dzh.partner.user','sol_dzh_partner_rel','sol_id','dzh_partner_id', string='User ID')
 
-	@api.multi
+	@api.model
 	def create(self, vals):
 		res = super(crm_lead , self).create(vals)
 		if 'dzh_check_box' in vals:

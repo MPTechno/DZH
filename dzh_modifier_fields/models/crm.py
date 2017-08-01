@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from odoo import fields, models
+from odoo import fields, models, api
 
 class CRMLead(models.Model):
     _inherit = 'crm.lead'
@@ -13,6 +13,12 @@ class CRMLead(models.Model):
     end_date = fields.Date('End Date')
     product_id = fields.Many2many('product.product', string="Product")
     currency_id = fields.Many2one("res.currency", "Currency")
+
+    @api.onchange('partner_id')
+    def onchange_customer(self):
+        if self.partner_id:
+            self.market_segment_id = self.partner_id.market_segment_id
+            self.member_type_id = self.partner_id.member_type_id
 
 class MarketSegmet(models.Model):
     _name = 'market.segment'

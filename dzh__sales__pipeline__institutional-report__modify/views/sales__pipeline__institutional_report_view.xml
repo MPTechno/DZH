@@ -110,6 +110,7 @@
                                         <t style="color:whitefont-size:20px:text-align:center;">Financial Solutions - Sales Pipeline (Corporate)</t>
                                     </th>
                                 </tr>
+                                <t t-if="o.invoice_filter[0]">
                                 <div t-foreach="o.invoice_filter[0]" t-as="f">
                                     <t t-set="total_planned" t-value="0"/>
                                     <t t-set="annual_planned" t-value="0"/>
@@ -145,8 +146,13 @@
                                             <span t-field="invoice.user_id"/>
                                         </td>
                                         <td>
-                                            <p t-foreach="invoice.partner_id and invoice.partner_id.opportunity_ids" t-as="op">
-                                                <span t-field="op.name"></span>
+                                            <p t-if="invoice.product_id">
+                                                <p t-foreach="invoice.product_id" t-as="product">
+                                                    <span t-field="product.name"></span>
+                                                </p>
+                                            </p>
+                                            <p t-else="">
+                                                    <span t-field="invoice.name"></span>
                                             </p>
                                         </td>
                                         <td>
@@ -198,6 +204,23 @@
                                         <td colspan="10">  </td>
                                     </tr>
                                 </div>
+                                </t>
+                                <t t-else="">
+                                    <tr style="background-color:#95b3d7;page-break-inside:avoid;">
+                                    <th>Company</th>
+                                    <th>Country</th>
+                                    <th>Account Manager</th>
+                                    <th>Services/Solutions</th>
+                                    <th>Potential Revenue Monthly</th>
+                                    <th>Potential Revenue Annual</th>
+                                    <th style="white-space:nowrap;">
+                                        <span class="text-left">Start Date/</span>
+                                        <span class="text-right">Billing</span>
+                                    </th>
+                                    <th>Probability</th>
+                                    <th>Remarks</th>
+                                </tr>
+                                </t>
                             </tbody>
                         </table>
                     </div>

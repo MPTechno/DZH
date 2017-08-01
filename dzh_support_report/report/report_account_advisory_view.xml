@@ -212,7 +212,7 @@
 			                			<th style="width:20%;padding:5px;">USERID/USERNAME</th>
 			                			<td>:</td>
 			                			<td colspan="7" style="padding:5px;border-bottom:1px solid black;">
-											<span t-if="o.user_id" t-field="o.user_id.name"></span>
+											<span t-if="o.dzh_user_id" t-field="o.dzh_user_id"></span>
 			                			</td>
 			                		</tr>
 			                		<tr>
@@ -446,7 +446,7 @@
 	        file="dzh_support_report.dzh_account_trial_advisory_report"
 	/>
 
-	<record id="dzh_support_report.trial_account_advisory_report" model="ir.actions.report.xml">
+	<record id="trial_account_advisory_report" model="ir.actions.report.xml">
 	    <field name="paperformat_id" ref="dhz_custom_paper_4"/>
 	</record>
 

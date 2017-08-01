@@ -18,9 +18,9 @@
                     <field name="partner_from_io" invisible="1" />
                     <field name="account_user_id" string="User ID" widget="many2many_tags"
                            domain="[('dzh_partner_id', '=', partner_from_io)]"/>
-                    <field name="start_date"/>
-                    <field name="end_date"/>
-                    <field name="subscription_period"/>
+                    <!--<field name="start_date"/>-->
+                    <!--<field name="end_date"/>-->
+                    <!--<field name="subscription_period"/>-->
                 </xpath>
                 <xpath expr="//page[1]/field[@name='invoice_line_ids']"
                        position="attributes">
